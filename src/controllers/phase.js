@@ -3,7 +3,7 @@ const Phase = require('../models/phase')
 exports.createPhase = async(req, res) => {
 
     try{
-        const id = req.params.id
+        const id = req.params.idProject
         const phase = new Phase(req.body)
         phase.project = id 
         await phase.save()
@@ -27,8 +27,7 @@ exports.viewPhase = async(req,res) => {
 exports.deletePhase = async(req , res) => {
 
     try{
-
-        const id = req.params.id
+        const id = req.params.idPhase
         const phase = await Phase.findByIdAndDelete(id)
         res.status(200).send(phase)
 
